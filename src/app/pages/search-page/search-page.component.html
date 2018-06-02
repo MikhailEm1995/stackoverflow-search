@@ -1,3 +1,8 @@
-<p>
-  search-page works!
-</p>
+<div class="page">
+  <div class="search">
+    <input [(ngModel)]="searchQuery" type="text" class="search__input">
+    <button type="button" class="search__submit" (click)="handleSearchClick()">Искать!</button>
+  </div>
+  <p class="message">{{message}}</p>
+</div>
+
