@@ -21,7 +21,7 @@ export class SearchPageComponent {
     this.search.getQuestions(this.searchQuery, 1)
       .subscribe(
         (res) => {
-          SearchService.questions = res;
+          SearchService.questions.next(res);
           this.router.navigate(['/results']);
         },
         (err) => {

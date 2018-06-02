@@ -1,3 +1,22 @@
-<p>
-  results-page works!
-</p>
+<div class="page">
+  <table>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Topic</th>
+        <th>Answers</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of questionsList">
+        <td>{{item.display_name}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.answer_count}}</td>
+        <td>
+          <span *ngFor="let tag of item.tags">{{tag}} </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
