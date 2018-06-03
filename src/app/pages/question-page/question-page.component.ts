@@ -64,8 +64,8 @@ export class QuestionPageComponent implements OnInit {
     this.isDateDesc = !this.isDateDesc;
 
     this.answers = this.answers.sort((curr, next) => {
-      const currDate = +moment(curr.date).valueOf();
-      const nextDate = +moment(next.date).valueOf();
+      const currDate = +moment(curr.date).unix();
+      const nextDate = +moment(next.date).unix();
 
       switch (true) {
         case currDate < nextDate: return -1;

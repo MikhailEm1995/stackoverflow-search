@@ -5,10 +5,10 @@ import {ResultsPageComponent} from '../../pages/results-page/results-page.compon
 import {QuestionPageComponent} from '../../pages/question-page/question-page.component';
 
 const appRoutes: Routes = [
-  { path: 'search', component: SearchPageComponent },
-  { path: 'results', component: ResultsPageComponent },
-  { path: 'question', component: QuestionPageComponent },
-  { path: '', redirectTo: '/search', pathMatch: 'full' }
+  { path: 'search', component: SearchPageComponent, data: { state: 'search' } },
+  { path: 'results', component: ResultsPageComponent, data: { state: 'results' } },
+  { path: 'question', component: QuestionPageComponent, data: { state: 'question' } },
+  { path: '', redirectTo: '/search', pathMatch: 'full', data: { state: 'search' } }
 ];
 
 @NgModule({

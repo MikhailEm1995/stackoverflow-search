@@ -12,6 +12,7 @@ import {GetInfoService} from './services/get-info/get-info.service';
 import {SearchService} from './services/search/search.service';
 import {QuestionsService} from './services/questions/questions.service';
 import { TableComponent } from './components/table/table.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TableComponent } from './components/table/table.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     GetInfoService,
