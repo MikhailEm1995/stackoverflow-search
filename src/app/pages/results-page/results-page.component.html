@@ -1,22 +1,21 @@
 <div class="page">
-  <table>
-    <thead>
-      <tr>
-        <th>Author</th>
-        <th>Topic</th>
-        <th>Answers</th>
-        <th>Tags</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of questionsList">
-        <td>{{item.display_name}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.answer_count}}</td>
-        <td>
-          <span *ngFor="let tag of item.tags">{{tag}} </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <button (click)="handleBackBtnClick()" type="button" class="page__back-btn">< Назад</button>
+
+  <p *ngIf="!questionsList" class="page__no-info">{{noInfoMessage}}</p>
+
+  <app-table
+    *ngIf="questionsList"
+    [interactive]="true"
+    [questions]="questionsList"
+    [onAuthorClick]="onAuthorClick"
+    [onTopicClick]="onTopicClick"
+    [onTagClick]="onTagClick"
+  ></app-table>
+
+  <div class="panel" *ngIf="isPanelOpen">
+    <h2 class="panel__title">{{panelTitle}}</h2>
+    <div class="panel__info">
+      <app-table [questions]="panelInfo" [interactive]="false"></app-table>
+    </div>
+  </div>
 </div>

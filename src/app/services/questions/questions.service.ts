@@ -11,7 +11,7 @@ export class QuestionsService {
     private http: HttpClient
   ) { }
 
-  public getAuthorsQuestions(authorId: string): Observable<any> {
+  public getAuthorsQuestions(authorId: number): Observable<any> {
     return this.http.get<any>(`${domain}users/${authorId}/questions?order=desc&sort=votes&site=stackoverflow&pagesize=10`);
   }
 

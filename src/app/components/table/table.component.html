@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Topic</th>
+      <th>Answers</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of questions">
+      <td *ngIf="!interactive">{{item.display_name}}</td>
+      <td *ngIf="!interactive">{{item.title}}</td>
+      <td *ngIf="!interactive">{{item.answer_count}}</td>
+      <td *ngIf="!interactive">{{item.tags.join(', ')}}</td>
+
+      <td *ngIf="interactive" (click)="handleAuthorClick(item.user_id)">{{item.display_name}}</td>
+      <td *ngIf="interactive" (click)="handleTopicClick(item.question_id)">{{item.title}}</td>
+      <td *ngIf="interactive" (click)="handleTopicClick(item.question_id)">{{item.answer_count}}</td>
+      <td *ngIf="interactive">
+        <button
+          type="button"
+          *ngFor="let tag of item.tags"
+          (click)="handleTagClick(tag)"
+        >{{tag}}</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

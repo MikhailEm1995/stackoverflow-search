@@ -11,13 +11,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {GetInfoService} from './services/get-info/get-info.service';
 import {SearchService} from './services/search/search.service';
 import {QuestionsService} from './services/questions/questions.service';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPageComponent,
     ResultsPageComponent,
-    QuestionPageComponent
+    QuestionPageComponent,
+    TableComponent
   ],
   imports: [
     AppRoutingModule,
