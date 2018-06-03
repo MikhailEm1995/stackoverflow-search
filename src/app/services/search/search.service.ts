@@ -8,7 +8,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class SearchService {
   private static currentQuery: string;
-  private static currentPage = 0;
+  private static currentPage = 1;
 
   public static questions: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
@@ -32,7 +32,7 @@ export class SearchService {
   }
 
   public getPrevPage(): Observable<any> {
-    if (SearchService.currentPage === 0) {
+    if (SearchService.currentPage === 1) {
       Observable.of(null);
     }
 

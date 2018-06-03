@@ -1,1 +1,28 @@
-<p>it works</p>
+<div class="page">
+  <button (click)="handleBackBtnClick()" type="button" class="page__back-btn">< Назад</button>
+
+  <p *ngIf="!answers" class="page__no-info">{{noInfoMessage}}</p>
+
+  <div *ngIf="answers" class="answers">
+    <table>
+      <thead>
+        <tr>
+          <th>Автор</th>
+          <th>Принят</th>
+          <th>Дата ответа</th>
+          <th>Ссылка на ответ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let answer of answers">
+          <td>{{answer.display_name}}</td>
+          <td>{{answer.is_accepted ? 'Да' : 'Нет'}}</td>
+          <td>{{answer.date}}</td>
+          <td>
+            <a target="_blank" [href]="answer.link">Ответ</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
