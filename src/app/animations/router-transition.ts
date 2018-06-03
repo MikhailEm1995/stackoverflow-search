@@ -2,7 +2,7 @@ import {trigger, animate, style, group, query, transition} from '@angular/animat
 
 export const routerTransition = trigger('routerTransition', [
   transition('* <=> *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
+    query(':enter, :leave', style({ position: 'fixed', width: '100%', height: '100%' }), { optional: true }),
     group([
       query(':enter', [
         style({ transform: 'translateX(100%)' }),
