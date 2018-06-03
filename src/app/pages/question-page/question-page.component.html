@@ -1,7 +1,7 @@
 <div class="page">
   <div class="mt-3">
     <div class="page__container">
-      <button (click)="handleBackBtnClick()" type="button" class="page__back-btn btn btn-info">Назад</button>
+      <button tabindex="1" (click)="handleBackBtnClick()" type="button" class="page__back-btn btn btn-info">Назад</button>
     </div>
   </div>
 
@@ -15,9 +15,9 @@
         <table class="table table-sm">
           <thead>
           <tr>
-            <th (click)="sortByAuthor()" class="pointer">Автор <i [class]="'fa ' + (isAuthorDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
+            <th (click)="sortByAuthor()" class="pointer" tabindex="1">Автор <i [class]="'fa ' + (isAuthorDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
             <th>Принят</th>
-            <th (click)="sortByDate()" class="pointer">Дата ответа <i [class]="'fa ' + (isDateDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
+            <th (click)="sortByDate()" class="pointer" tabindex="1">Дата ответа <i [class]="'fa ' + (isDateDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
             <th>Ссылка на ответ</th>
           </tr>
           </thead>
@@ -27,7 +27,7 @@
             <td>{{answer.is_accepted ? 'Да' : 'Нет'}}</td>
             <td>{{answer.date}}</td>
             <td>
-              <a target="_blank" [href]="answer.link">Ответ</a>
+              <a target="_blank" [href]="answer.link" tabindex="1">Ответ</a>
             </td>
           </tr>
           </tbody>

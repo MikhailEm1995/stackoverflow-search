@@ -1,7 +1,7 @@
 <div class="page">
   <div class="mt-3">
     <div class="page__container">
-      <button (click)="handleBackBtnClick()" type="button" class="page__back-btn btn btn-info">Назад</button>
+      <button tabindex="1" (click)="handleBackBtnClick()" type="button" class="page__back-btn btn btn-info">Назад</button>
     </div>
   </div>
 
@@ -21,10 +21,10 @@
       ></app-table>
 
       <div *ngIf="questionsList" class="nav-buttons mt-3">
-        <button type="button" class="nav-buttons__btn btn btn-link" (click)="handlePrevButtonClick()">
+        <button tabindex="1" type="button" class="nav-buttons__btn btn btn-link" (click)="handlePrevButtonClick()">
           <i class="fa fa-arrow-alt-circle-left"></i>
         </button>
-        <button type="button" class="nav-buttons__btn btn btn-link" (click)="handleNextButtonClick()">
+        <button tabindex="1" type="button" class="nav-buttons__btn btn btn-link" (click)="handleNextButtonClick()">
           <i class="fa fa-arrow-alt-circle-right"></i>
         </button>
       </div>
