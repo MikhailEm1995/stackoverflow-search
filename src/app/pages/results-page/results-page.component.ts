@@ -98,4 +98,18 @@ export class ResultsPageComponent implements OnInit {
         }
       }, this.onError);
   }
+
+  public handlePrevButtonClick(): void {
+    this.search.getPrevPage().subscribe(
+      (res) => {
+        SearchService.questions.next(res);
+      }, this.onError);
+  }
+
+  public handleNextButtonClick(): void {
+    this.search.getNextPage().subscribe(
+      (res) => {
+        SearchService.questions.next(res);
+      }, this.onError);
+  }
 }

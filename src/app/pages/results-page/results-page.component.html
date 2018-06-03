@@ -12,6 +12,11 @@
     [onTagClick]="onTagClick"
   ></app-table>
 
+  <div *ngIf="questionsList" class="nav-buttons">
+    <button type="button" class="nav-buttons__prev" (click)="handlePrevButtonClick()"><</button>
+    <button type="button" class="nav-buttons__next" (click)="handleNextButtonClick()">></button>
+  </div>
+
   <div class="panel" *ngIf="isPanelOpen">
     <h2 class="panel__title">{{panelTitle}}</h2>
     <div class="panel__info">

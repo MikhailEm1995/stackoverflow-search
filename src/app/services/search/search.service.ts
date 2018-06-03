@@ -17,7 +17,6 @@ export class SearchService {
   ) { }
 
   public getQuestions(query: string, page: number): Observable<any> {
-    SearchService.currentPage = 0;
     SearchService.currentQuery = query;
 
     return this.http.get<any>(
@@ -26,7 +25,7 @@ export class SearchService {
   }
 
   public getNextPage(): Observable<any> {
-    SearchService.currentPage += 1;
+    SearchService.currentPage = SearchService.currentPage + 1;
 
     return this.getQuestions(SearchService.currentQuery, SearchService.currentPage);
   }
@@ -36,7 +35,7 @@ export class SearchService {
       Observable.of(null);
     }
 
-    SearchService.currentPage -= 1;
+    SearchService.currentPage = SearchService.currentPage - 1;
 
     return this.getQuestions(SearchService.currentQuery, SearchService.currentPage);
   }
