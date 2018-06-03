@@ -36,6 +36,15 @@ export class ResultsPageComponent implements OnInit {
           this.questionsList = this.mapResponse(list.items);
         }
       }, this.onError);
+
+    QuestionsService.questions.subscribe(
+      (list) => {
+        if (list.items) {
+          this.isPanelOpen = true;
+
+          this.panelInfo = this.mapResponse(list.items);
+        }
+      }, this.onError);
   }
 
   private onError(err): void {
@@ -62,14 +71,13 @@ export class ResultsPageComponent implements OnInit {
       .subscribe(
         (res) => {
           if (res.items) {
-            this.isPanelOpen = true;
-            this.panelTitle = 'Популярные вопросы автора';
-            this.panelInfo = this.mapResponse(res.items);
+            this.panelTitle = `Популярные вопросы автора`;
+            QuestionsService.questions.next(res);
           } else {
             this.panelTitle = 'Нет информации';
           }
         }, this.onError);
-  };
+  }
 
   public onTopicClick = (questionId: number): void => {
     this.getInfo.getAnswers(questionId).subscribe(
@@ -83,9 +91,8 @@ export class ResultsPageComponent implements OnInit {
     this.questions.getQuestionsWithTag(tag).subscribe(
       (res) => {
         if (res.items) {
-          this.isPanelOpen = true;
           this.panelTitle = `Популярные вопросы по тегу ${tag}`;
-          this.panelInfo = this.mapResponse(res.items);
+          QuestionsService.questions.next(res);
         } else {
           this.panelTitle = 'Нет информации';
         }

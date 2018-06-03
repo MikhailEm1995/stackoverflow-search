@@ -3,9 +3,12 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
 import {domain} from '../../../consts/api';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class QuestionsService {
+
+  public static questions: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
   constructor(
     private http: HttpClient
