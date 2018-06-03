@@ -14,6 +14,9 @@ export class QuestionPageComponent implements OnInit {
 
   public noInfoMessage = 'Сперва выберите вопрос';
 
+  private isAuthorDesc = false;
+  private isDateDesc = false;
+
   constructor(
     private router: Router
   ) { }
@@ -38,5 +41,37 @@ export class QuestionPageComponent implements OnInit {
 
   handleBackBtnClick(): void {
     this.router.navigate(['/results']);
+  }
+
+  sortByAuthor(): void {
+    this.isAuthorDesc = !this.isAuthorDesc;
+
+    this.answers = this.answers.sort((curr, next) => {
+      const currAuthor = curr.display_name.toLowerCase().charCodeAt(0);
+      const nextAuthor = next.display_name.toLowerCase().charCodeAt(0);
+
+      switch (true) {
+        case isNaN(currAuthor) || isNaN(nextAuthor): return 0;
+        case currAuthor === nextAuthor: return 0;
+        case ((this.isAuthorDesc && currAuthor < nextAuthor) ||
+          (!this.isAuthorDesc && currAuthor > nextAuthor)): return -1;
+        default: return 1;
+      }
+    });
+  }
+
+  sortByDate(): void {
+    this.isDateDesc = !this.isDateDesc;
+
+    this.answers = this.answers.sort((curr, next) => {
+      const currDate = +moment(curr.date).valueOf();
+      const nextDate = +moment(next.date).valueOf();
+
+      switch (true) {
+        case currDate < nextDate: return -1;
+        case currDate > nextDate: return 1;
+        default: return 0;
+      }
+    });
   }
 }
