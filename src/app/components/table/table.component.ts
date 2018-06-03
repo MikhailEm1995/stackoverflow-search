@@ -13,9 +13,9 @@ export class TableComponent {
   @Input() onTopicClick: Function;
   @Input() onTagClick: Function;
 
-  private isAuthorDesc = false;
-  private isTitleDesc = false;
-  private isAnswersDesc = false;
+  public isAuthorDesc = false;
+  public isTitleDesc = false;
+  public isAnswersDesc = false;
 
   constructor() {}
 

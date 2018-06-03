@@ -1,9 +1,9 @@
-<table>
+<table class="table table-sm">
   <thead>
     <tr>
-      <th (click)="sortByAuthor()">Автор</th>
-      <th (click)="sortByTitle()">Тема</th>
-      <th (click)="sortByAnswers()">Ответов</th>
+      <th (click)="sortByAuthor()" class="pointer">Автор <i [class]="'fa ' + (isAuthorDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
+      <th (click)="sortByTitle()" class="pointer">Тема <i [class]="'fa ' + (isTitleDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
+      <th (click)="sortByAnswers()" class="pointer">Ответов <i [class]="'fa ' + (isAnswersDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
       <th>Теги</th>
     </tr>
   </thead>
@@ -14,14 +14,30 @@
       <td *ngIf="!interactive">{{item.answer_count}}</td>
       <td *ngIf="!interactive">{{item.tags.join(', ')}}</td>
 
-      <td *ngIf="interactive" (click)="handleAuthorClick(item.user_id)">{{item.display_name}}</td>
-      <td *ngIf="interactive" (click)="handleTopicClick(item.question_id)">{{item.title}}</td>
-      <td *ngIf="interactive" (click)="handleTopicClick(item.question_id)">{{item.answer_count}}</td>
+      <td
+        *ngIf="interactive"
+        (click)="handleAuthorClick(item.user_id)"
+        role="button"
+        aria-label="Интерактивный: посмотреть популярные вопросы автора"
+        class="pointer text-secondary"><u>{{item.display_name}}</u></td>
+      <td
+        *ngIf="interactive"
+        (click)="handleTopicClick(item.question_id)"
+        role="button"
+        aria-label="Интерактивный: посмотреть ответы на вопрос"
+        class="pointer text-secondary"><u>{{item.title}}</u></td>
+      <td
+        *ngIf="interactive"
+        (click)="handleTopicClick(item.question_id)"
+        role="button"
+        aria-label="Интерактивный: посмотреть ответы на вопрос"
+        class="pointer text-secondary"><u>{{item.answer_count}}</u></td>
       <td *ngIf="interactive">
         <button
           type="button"
           *ngFor="let tag of item.tags"
           (click)="handleTagClick(tag)"
+          class="pointer btn btn-sm btn-link"
         >{{tag}}</button>
       </td>
     </tr>

@@ -1,28 +1,38 @@
 <div class="page">
-  <button (click)="handleBackBtnClick()" type="button" class="page__back-btn">< Назад</button>
+  <div class="mt-3">
+    <div class="page__container">
+      <button (click)="handleBackBtnClick()" type="button" class="page__back-btn btn btn-info">Назад</button>
+    </div>
+  </div>
 
-  <p *ngIf="!answers" class="page__no-info">{{noInfoMessage}}</p>
+  <div class="mt-3">
+    <div class="page__container">
+      <p *ngIf="!answers" class="breadcrumb">
+        <span class="breadcrumb-item active">{{noInfoMessage}}</span>
+      </p>
 
-  <div *ngIf="answers" class="answers">
-    <table>
-      <thead>
-        <tr>
-          <th (click)="sortByAuthor()">Автор</th>
-          <th>Принят</th>
-          <th (click)="sortByDate()">Дата ответа</th>
-          <th>Ссылка на ответ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let answer of answers">
-          <td>{{answer.display_name}}</td>
-          <td>{{answer.is_accepted ? 'Да' : 'Нет'}}</td>
-          <td>{{answer.date}}</td>
-          <td>
-            <a target="_blank" [href]="answer.link">Ответ</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <div *ngIf="answers" class="answers">
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th (click)="sortByAuthor()" class="pointer">Автор <i [class]="'fa ' + (isAuthorDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
+            <th>Принят</th>
+            <th (click)="sortByDate()" class="pointer">Дата ответа <i [class]="'fa ' + (isDateDesc ? 'fa-arrow-up' : 'fa-arrow-down')"></i></th>
+            <th>Ссылка на ответ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let answer of answers">
+            <td>{{answer.display_name}}</td>
+            <td>{{answer.is_accepted ? 'Да' : 'Нет'}}</td>
+            <td>{{answer.date}}</td>
+            <td>
+              <a target="_blank" [href]="answer.link">Ответ</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

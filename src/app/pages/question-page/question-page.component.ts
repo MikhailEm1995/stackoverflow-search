@@ -14,8 +14,8 @@ export class QuestionPageComponent implements OnInit {
 
   public noInfoMessage = 'Сперва выберите вопрос';
 
-  private isAuthorDesc = false;
-  private isDateDesc = false;
+  public isAuthorDesc = false;
+  public isDateDesc = false;
 
   constructor(
     private router: Router

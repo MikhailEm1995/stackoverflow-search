@@ -5,7 +5,7 @@ import {routerTransition} from './animations/router-transition';
   selector: 'app-root',
   animations: [routerTransition],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   getState(outlet) {

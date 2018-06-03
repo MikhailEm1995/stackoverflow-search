@@ -1,8 +1,30 @@
 <div class="page">
   <div class="search">
-    <input [(ngModel)]="searchQuery" type="text" class="search__input">
-    <button type="button" class="search__submit" (click)="handleSearchClick()">Искать!</button>
+    <div class="search__form-container">
+      <div class="search__form input-group">
+        <input
+          [(ngModel)]="searchQuery"
+          type="text"
+          class="search__input form-control"
+          placeholder="Введите запрос"
+        >
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="search__submit btn btn-info"
+            (click)="handleSearchClick()"
+          >Искать!</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="message">{{message}}</p>
+
+  <div *ngIf="message.length > 0" class="search__message-container">
+    <div class="search__message">
+      <div class="alert alert-danger">
+        {{message}}
+      </div>
+    </div>
+  </div>
 </div>
 

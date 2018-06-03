@@ -1,26 +1,44 @@
 <div class="page">
-  <button (click)="handleBackBtnClick()" type="button" class="page__back-btn">< Назад</button>
-
-  <p *ngIf="!questionsList" class="page__no-info">{{noInfoMessage}}</p>
-
-  <app-table
-    *ngIf="questionsList"
-    [interactive]="true"
-    [questions]="questionsList"
-    [onAuthorClick]="onAuthorClick"
-    [onTopicClick]="onTopicClick"
-    [onTagClick]="onTagClick"
-  ></app-table>
-
-  <div *ngIf="questionsList" class="nav-buttons">
-    <button type="button" class="nav-buttons__prev" (click)="handlePrevButtonClick()"><</button>
-    <button type="button" class="nav-buttons__next" (click)="handleNextButtonClick()">></button>
+  <div class="mt-3">
+    <div class="page__container">
+      <button (click)="handleBackBtnClick()" type="button" class="page__back-btn btn btn-info">Назад</button>
+    </div>
   </div>
 
-  <div class="panel" *ngIf="isPanelOpen">
-    <h2 class="panel__title">{{panelTitle}}</h2>
-    <div class="panel__info">
-      <app-table [questions]="panelInfo" [interactive]="false"></app-table>
+  <div class="mt-3">
+    <div class="page__container">
+      <p *ngIf="!questionsList" class="breadcrumb">
+        <span class="breadcrumb-item active">{{noInfoMessage}}</span>
+      </p>
+
+      <app-table
+        *ngIf="questionsList"
+        [interactive]="true"
+        [questions]="questionsList"
+        [onAuthorClick]="onAuthorClick"
+        [onTopicClick]="onTopicClick"
+        [onTagClick]="onTagClick"
+      ></app-table>
+
+      <div *ngIf="questionsList" class="nav-buttons mt-3">
+        <button type="button" class="nav-buttons__btn btn btn-link" (click)="handlePrevButtonClick()">
+          <i class="fa fa-arrow-alt-circle-left"></i>
+        </button>
+        <button type="button" class="nav-buttons__btn btn btn-link" (click)="handleNextButtonClick()">
+          <i class="fa fa-arrow-alt-circle-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <div class="page__container">
+      <div class="panel" *ngIf="isPanelOpen">
+        <h2 class="panel__title">{{panelTitle}}</h2>
+        <div class="panel__info">
+          <app-table [questions]="panelInfo" [interactive]="false"></app-table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,31 @@
+.search {
+  position: relative;
+
+  height: 100%;
+
+  &__form {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  &__form-container {
+    position: absolute;
+    top: 40%;
+    left: 0;
+
+    width: 100%;
+  }
+
+  &__message {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  &__message-container {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+
+    width: 100%;
+  }
+}
