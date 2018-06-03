@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {SearchService} from '../../services/search/search.service';
 import {Router} from '@angular/router';
+import {QuestionsService} from '../../services/questions/questions.service';
 
 @Component({
   selector: 'app-search-page',
@@ -14,6 +15,7 @@ export class SearchPageComponent {
 
   constructor(
     private search: SearchService,
+    private questions: QuestionsService,
     private router: Router
   ) {}
 
@@ -22,6 +24,7 @@ export class SearchPageComponent {
       .subscribe(
         (res) => {
           SearchService.questions.next(res);
+          QuestionsService.questions.next([]);
           this.router.navigate(['/results']);
         },
         (err) => {
